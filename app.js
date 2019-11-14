@@ -1,15 +1,17 @@
-/**
- * node c componentName
- * @componentName {String} 组件名
- * 鸣谢 https://www.cnblogs.com/xiaohaifengke/p/7693185.html
+/*
+ * @Description: 描述
+ * @Author: 吴文周
+ * @Github: http://gitlab.yzf.net/wuwenzhou
+ * @Date: 2019-11-12 09:11:40
+ * @LastEditors: 吴文周
+ * @LastEditTime: 2019-11-12 19:17:15
+ * @鸣谢 https://www.cnblogs.com/xiaohaifengke/p/7693185.html
  */
-
 const fs = require('fs')
 const path = require('path')
 const _ = require('lodash')
 const componentName = 'java'
-
-console.log('prepare to creat a ' + componentName + ' component')
+const clean = require('./clean')
 
 let root = './'
 
@@ -42,6 +44,8 @@ let targetFilePath = path.join(
 if (!fs.existsSync(targetDirPath)) {
   fs.mkdirSync(targetDirPath)
   console.log('The ' + targetDirPath + ' folder has been created!')
+}else{
+  clean(targetDirPath)
 }
 
 // writeFile async
